@@ -1,0 +1,7 @@
+env
+.env
+*confess.db
+*.pyc
+url.txt
+todo.md
+task.md
