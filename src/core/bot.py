@@ -1,21 +1,23 @@
 from discord.ext import commands
 import discord
-from view.profile_btn import Profile
+
+from discord.ext import bridge, commands
 
 #bot_configs = BotConfigs()
 
 #jezzzzz
 
-class ProfileBot(commands.Bot):
+class Incognito(commands.Bot):
     def __init__(self):
         intents = discord.Intents.default()
         intents.message_content = True
         description = '''Discord profile bot '''
         super().__init__(command_prefix=commands.when_mentioned_or('$'), intents=intents, description=description)
-
+        
+   
     async def setup_hook(self) -> None:
         #self.add_view(StartVerify(self))
-        self.add_view(Profile(self))
+        pass
 
     async def on_ready(self):
         print(f'Logged in as {self.user} (ID: {self.user.id})')
