@@ -3,7 +3,7 @@ import discord
 import os
 import json
 from dotenv import load_dotenv
-from discord.ext import bridge
+from discord.ext import commands
 
 load_dotenv()
 token = os.getenv('TOKEN')
@@ -11,7 +11,7 @@ token = os.getenv('TOKEN')
 #data = json.load(f)
 
 
-from src.core.bot import Incognito
+from core.bot import Incognito
 
 bot = Incognito()
 
@@ -25,6 +25,10 @@ async def load():
 @bot.slash_command(name = "hello", description = "Say hello to the bot")
 async def hello(ctx):
     await ctx.respond("Hey!")
+
+@bot.command()
+async def see(ctx: commands.Context):
+    await ctx.reply("see")
 
 
 async def main():
