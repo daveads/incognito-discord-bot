@@ -23,6 +23,7 @@ class ample(commands.Cog):
             await ctx.message.channel.send(embed=embed, view=ConfessBtn()) #delete_after=5
 
 
+
     @commands.slash_command()  # Not passing in guild_ids creates a global slash command.
     #@discord.slash_command()
     async def hi(self, ctx: discord.ApplicationContext):

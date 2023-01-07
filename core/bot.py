@@ -2,6 +2,7 @@ from discord.ext import commands
 import discord
 
 from discord.ext import bridge, commands
+from btn.confess_btn import ConfessBtn
 
 #bot_configs = BotConfigs()
 
@@ -14,12 +15,9 @@ class Incognito(commands.Bot):
         description = '''Discord profile bot '''
         super().__init__(command_prefix=commands.when_mentioned_or('$'), intents=intents, description=description)
         
-   
-    async def setup_hook(self) -> None:
-        #self.add_view(StartVerify(self))
-        pass
 
     async def on_ready(self):
+        self.add_view(ConfessBtn())
         print(f'Logged in as {self.user} (ID: {self.user.id})')
         print('------')
         #c = self.get_guild(bot_configs.guild_id())
