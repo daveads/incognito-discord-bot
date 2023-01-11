@@ -23,12 +23,12 @@ class incognito_start(commands.Cog):
             await ctx.message.channel.send(embed=embed, view=ConfessBtn()) #delete_after=5
 
 
-
+"""
     @commands.slash_command()  # Not passing in guild_ids creates a global slash command.
     #@discord.slash_command()
     async def hi(self, ctx: discord.ApplicationContext):
         await ctx.respond("Hi, this is a global slash command from a cog!")
-
+"""
 
 def setup(bot):
     bot.add_cog(incognito_start(bot))

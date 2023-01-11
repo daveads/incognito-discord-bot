@@ -22,14 +22,6 @@ async def load():
             bot.load_extension(f'cogs.{f[:-3]}')
 
 
-@bot.slash_command(name = "hello", description = "Say hello to the bot")
-async def hello(ctx):
-    await ctx.respond("Hey!")
-
-@bot.command()
-async def see(ctx: commands.Context):
-    await ctx.reply("see")
-
 
 async def main():
     await load()
