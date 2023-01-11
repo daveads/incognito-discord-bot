@@ -50,7 +50,7 @@ class cfs(discord.ui.Modal):
         description=self.children[0].value,
         color=discord.Colour(0x2f3136),
         )
-        embed.set_footer(text="All confessions are anonymous | Powered by Incognito™")
+        embed.set_footer(text="All confessions are anonymous | Powered by Incognito")
         #channel = client.get_channel(991832397769363456)
 
         channel = discord.utils.get(interaction.guild.channels, id=1061274145163333743)

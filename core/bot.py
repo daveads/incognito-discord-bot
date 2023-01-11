@@ -17,7 +17,7 @@ class Incognito(commands.Bot):
         
 
     async def on_ready(self):
-        self.add_view(ConfessBtn())
+        self.add_view(ConfessBtn(self))
         print(f'Logged in as {self.user} (ID: {self.user.id})')
         print('------')
         #c = self.get_guild(bot_configs.guild_id())
