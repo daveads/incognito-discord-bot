@@ -20,7 +20,7 @@ class incognito_start(commands.Cog):
             description="`To send an anonymous confession`, \n**use the 😷 button** \n\n `To send an Anonymous message to a user` \n**use the ✍️ button**",
             color=discord.Colour(0x2f3136)
         )
-            await ctx.message.channel.send(embed=embed, view=ConfessBtn()) #delete_after=5
+            await ctx.message.channel.send(embed=embed, view=ConfessBtn(self.bot)) #delete_after=5
 
 
 """
