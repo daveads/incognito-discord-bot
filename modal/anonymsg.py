@@ -15,11 +15,7 @@ class anonymsg(discord.ui.Modal):
         
         log_chn = discord.utils.get(interaction.guild.channels, id=1061274643467599922)
         annoymdm_chn = discord.utils.get(interaction.guild.channels, id=1062857811777822820)
-        
-        embed = discord.Embed(title="Modal Results")
-        embed.add_field(name="Short Input", value=self.children[0].value)
-        embed.add_field(name="Long Input", value=self.children[1].value)
-
+      
         # user = guild.get_member_named("Example#1234")
         #c = interaction.guild.get_member_named("daveads#6337")
         #print("checking id", c.id)
