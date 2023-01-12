@@ -3,9 +3,7 @@ import discord
 class anonymsg(discord.ui.Modal):
      def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
-        print(args)
-        print(kwargs)
-
+    
         self.add_item(discord.ui.InputText(label="User id", style=discord.InputTextStyle.short))
         self.add_item(discord.ui.InputText(label="Input Message", style=discord.InputTextStyle.long))
 
@@ -22,8 +20,8 @@ class anonymsg(discord.ui.Modal):
 
         try:
             user_id = self.children[0].value
-            await interaction.response.send_message("sent")
-            
+            #await interaction.response.defer()
+
             user = [int(x) for x in str(user_id)]
 
             if len(user) == 18:
@@ -36,7 +34,10 @@ class anonymsg(discord.ui.Modal):
                 #receving user
                 embed_user = discord.Embed(title="Incognito bot `anonymous dm`", description=f"{self.children[1].value}", color=0xFF5733)
                 await user_msg.send(embed=embed_user)
-                print(self.children[1].value)
+
+                #sender
+                await interaction.response.send_message("sent", delete_after=5)
+
 
                 #LOGS
                 embed_log = discord.Embed(title=f"anonymous message", description=f"{self.children[1].value} \n\n**Sent By:** {interaction.user} <@{interaction.user.id}> \n\n**Sent To:** {user_msg} <@{user_msg.id}>" , color=discord.Colour(0x2f3136),)
@@ -49,8 +50,10 @@ class anonymsg(discord.ui.Modal):
                 embed_anno = discord.Embed(title="Incognito bot", description=f"Check Your Dm, You just got an anonymous message", color=0xFF5733)
                 await annoymdm_chn.send(embed=embed_anno)
 
+                
+
 
         except:
-            await interaction.response.send_message("you need to input a user id")
+            await interaction.response.send_message("you need to input a user id", delete_after=5)
 
         #await interaction.response.send_message(embeds=[embed])
