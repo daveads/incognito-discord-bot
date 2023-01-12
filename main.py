@@ -23,8 +23,8 @@ async def load():
 
 
 
-async def main():
+async def run():
     await load()
-    await bot.start(token)
 
-asyncio.run(main())
+asyncio.run(run())
+bot.run(token)

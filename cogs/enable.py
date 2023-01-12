@@ -11,16 +11,18 @@ class Enable(commands.Cog):
      @commands.slash_command(name = "enable", description = "allows you to receive Anonymous message")
      async def enable(self, ctx: discord.ApplicationContext):
 
-        enable_roleObj = discord.utils.get(ctx.guild.roles, id=1063101418090803200)
+        disable_roleObj = discord.utils.get(ctx.guild.roles, id=1063101418090803200)
         
 
-        if enable_roleObj in ctx.user.roles:
-            await ctx.respond("**Anonymous Message** `Already Enabled`", delete_after=5)
-
-        else:
+        if disable_roleObj in ctx.user.roles:
             user = await ctx.guild.fetch_member(ctx.author.id)
-            await user.add_roles(enable_roleObj)
+            await user.remove_roles(disable_roleObj)
             await ctx.respond("**Anonymous Message** `Enable`", delete_after=5)
+
+            
+        else:
+            await ctx.respond("**Anonymous Message** `Already Enabled`", delete_after=5)
+            
 
 def setup(bot):
     bot.add_cog(Enable(bot))

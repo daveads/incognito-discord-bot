@@ -1,5 +1,9 @@
 import discord
 
+from core.config_parser import BotConfigs
+
+botconfig = BotConfigs()
+
 class anonymsg(discord.ui.Modal):
      def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
@@ -11,9 +15,10 @@ class anonymsg(discord.ui.Modal):
 
      async def callback(self, interaction: discord.Interaction):
         
-        log_chn = discord.utils.get(interaction.guild.channels, id=1061274643467599922)
-        annoymdm_chn = discord.utils.get(interaction.guild.channels, id=1062857811777822820)
-        enable_roleObj = discord.utils.get(interaction.guild.roles, id=1063101418090803200)
+        log_chn = discord.utils.get(interaction.guild.channels, id=botconfig.channel("incognito_logs"))
+        
+        annoymdm_chn = discord.utils.get(interaction.guild.channels, id=botconfig.channel("anonymous_dm_alert"))
+        disable_roleObj = discord.utils.get(interaction.guild.roles, id=botconfig.role("disable_anony"))
         
         # user = guild.get_member_named("Example#1234")
         #c = interaction.guild.get_member_named("daveads#6337")
@@ -32,7 +37,12 @@ class anonymsg(discord.ui.Modal):
                 
                 user_msg = await interaction.guild.fetch_member(int(user_id))
 
-                if enable_roleObj in user_msg.roles:
+                if disable_roleObj in user_msg.roles:
+                    
+                    await interaction.response.send_message("*You can't send this user a Message* \n **User disabled** `anonymous message`", delete_after=5)
+
+                
+                else:
 
                     #receving user
                     embed_user = discord.Embed(title="Incognito bot `anonymous dm`", description=f"{self.children[1].value}", color=0xFF5733)
@@ -52,10 +62,7 @@ class anonymsg(discord.ui.Modal):
                     await annoymdm_chn.send(user_msg.mention)
                     embed_anno = discord.Embed(title="Incognito bot", description=f"Check Your Dm, You just got an anonymous message", color=0xFF5733)
                     await annoymdm_chn.send(embed=embed_anno)
-
-                else: 
-                    await interaction.response.send_message("*You can't send this user a Message* \n **User disabled** `anonymous message`", delete_after=5)
-
+                    
                 
 
 

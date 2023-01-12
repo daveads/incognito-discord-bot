@@ -3,6 +3,10 @@ from datetime import datetime
 import sqlite3
 from model import confession
 
+
+from core.config_parser import BotConfigs
+botconfig = BotConfigs()
+
 #modal
 class cfs(discord.ui.Modal):
     def __init__(self, *args, **kwargs) -> None:
@@ -53,19 +57,19 @@ class cfs(discord.ui.Modal):
         embed.set_footer(text="All confessions are anonymous | Powered by Incognito")
         #channel = client.get_channel(991832397769363456)
 
-        channel = discord.utils.get(interaction.guild.channels, id=1061274145163333743)
+        channel = discord.utils.get(interaction.guild.channels, id=botconfig.channel("confessions"))
 
         # confession log
-        confession_logs_embed = discord.Embed(title=f"Confession logs #{counter+1}" , #{self.counter}
+        incognito_logs_embed = discord.Embed(title=f"Confession logs #{counter+1}" , #{self.counter}
         description=f"{self.children[0].value}\n\n**Confessed by:** {interaction.user} <@{interaction.user.id}>",
         color=discord.Colour(0x2f3136),
         )
-        confession_logs_embed.set_footer(text=f"date: {datetime.utcnow().strftime('%d-%m-%Y %H:%M')}")
+        incognito_logs_embed.set_footer(text=f"date: {datetime.utcnow().strftime('%d-%m-%Y %H:%M')}")
 
         #confess_log_channel = client.get_channel(1010023764387438643)
 
-        confess_log_channel = discord.utils.get(interaction.guild.channels, id=1061274643467599922)
+        incognito_logs = discord.utils.get(interaction.guild.channels, id=botconfig.channel("incognito_logs"))
 
         await channel.send(embeds=[embed])
-        await confess_log_channel.send(embeds=[confession_logs_embed])
+        await incognito_logs.send(embeds=[incognito_logs_embed])
         await interaction.response.send_message("**Confession sent!**", delete_after=5)
