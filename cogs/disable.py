@@ -1,5 +1,7 @@
 import discord
 from discord.ext import commands
+from discord import guild_only
+
 
 class Disable(commands.Cog):
      def __init__(self, bot):
@@ -8,6 +10,7 @@ class Disable(commands.Cog):
     
 
      @commands.slash_command(name = "disable", description = "disable Anonymous message")
+     @guild_only()
      async def disable(self, ctx: discord.ApplicationContext):
 
         #1063106187891069008

@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from discord import guild_only
 
 class Enable(commands.Cog):
      def __init__(self, bot):
@@ -8,6 +9,7 @@ class Enable(commands.Cog):
     
 
      @commands.slash_command(name = "enable", description = "allows you to receive Anonymous message")
+     @guild_only()
      async def enable(self, ctx: discord.ApplicationContext):
 
         disable_roleObj = discord.utils.get(ctx.guild.roles, id=1063101418090803200)
