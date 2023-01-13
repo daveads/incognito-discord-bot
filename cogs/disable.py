@@ -19,13 +19,13 @@ class Disable(commands.Cog):
 
         if disable_roleObj in ctx.user.roles:
 
-            await ctx.respond("**Anonymous Message** `Already Disabled`", delete_after=5)
+            await ctx.respond("**Anonymous Message** `Already Disabled`", ephemeral=True, delete_after=5)
 
         else:
 
             user = await ctx.guild.fetch_member(ctx.author.id)
             await user.add_roles(disable_roleObj)
-            await ctx.respond("**Anonymous Message** `Disabled`", delete_after=5)
+            await ctx.respond("**Anonymous Message** `Disabled`", ephemeral=True, delete_after=5)
             
 
             

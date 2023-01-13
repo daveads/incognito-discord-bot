@@ -15,13 +15,7 @@ class Amp(commands.Cog):
         #await ctx.respond("private message received", ephemeral=True)
         
         await ctx.send_modal(AmpM(title="public anonymous message"))
-
-        #await ctx.send("hello")
-
-        #print(ctx.channel.id)
-
-        #await ctx.followup.send("hello", ephemeral=False)
-            
+  
 def setup(bot):
     bot.add_cog(Amp(bot))
     
