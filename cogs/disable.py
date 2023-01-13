@@ -1,7 +1,6 @@
 import discord
 from discord.ext import commands
 
-from modal.announce_modal import announce
 class Disable(commands.Cog):
      def __init__(self, bot):
         self.bot = bot

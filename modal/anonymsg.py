@@ -39,7 +39,7 @@ class anonymsg(discord.ui.Modal):
 
                 if disable_roleObj in user_msg.roles:
                     
-                    await interaction.response.send_message("*You can't send this user a Message* \n **User disabled** `anonymous message`", delete_after=5)
+                    await interaction.response.send_message("*You can't send this user a Message* \n **User disabled** `anonymous message`", ephemeral=True, delete_after=5)
 
                 
                 else:
@@ -49,7 +49,7 @@ class anonymsg(discord.ui.Modal):
                     await user_msg.send(embed=embed_user)
 
                     #sender
-                    await interaction.response.send_message("sent", delete_after=5)
+                    await interaction.response.send_message("sent", ephemeral=True, delete_after=5)
 
 
                     #LOGS
@@ -67,6 +67,6 @@ class anonymsg(discord.ui.Modal):
 
 
         except:
-            await interaction.response.send_message("you need to input a user id", delete_after=5)
+            await interaction.response.send_message("you need to input a user id", ephemeral=True, delete_after=5)
 
         #await interaction.response.send_message(embeds=[embed])
