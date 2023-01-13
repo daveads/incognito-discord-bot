@@ -8,7 +8,7 @@ class Amp(commands.Cog):
 
     
 
-     @commands.slash_command(name = "anonymous_public_mesage", description = "send a public anonymous message to a user", )
+     @commands.slash_command(name = "anonymous_public_message", description = "send a public anonymous message to a user", )
      async def apm(self, ctx: discord.ApplicationContext):
         #await ctx.respond("private message received", ephemeral=True)
         
