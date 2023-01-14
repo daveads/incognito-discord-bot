@@ -20,15 +20,9 @@ class incognito_start(commands.Cog):
             description="`To send an anonymous confession`, \n**use the 😷 button** \n\n `To send an Anonymous message to a user` \n**use the ✍️ button**",
             color=discord.Colour(0x2f3136)
         )
-            await ctx.message.channel.send(embed=embed, view=ConfessBtn(self.bot)) #delete_after=5
+            await ctx.message.channel.send(embed=embed, view=ConfessBtn(self.bot))
 
 
-"""
-    @commands.slash_command()  # Not passing in guild_ids creates a global slash command.
-    #@discord.slash_command()
-    async def hi(self, ctx: discord.ApplicationContext):
-        await ctx.respond("Hi, this is a global slash command from a cog!")
-"""
 
 def setup(bot):
     bot.add_cog(incognito_start(bot))
