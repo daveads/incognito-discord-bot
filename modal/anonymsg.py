@@ -53,7 +53,7 @@ class anonymsg(discord.ui.Modal):
 
 
                     #LOGS
-                    embed_log = discord.Embed(title=f"anonymous message", description=f"{self.children[1].value} \n\n**Sent By:** {interaction.user} <@{interaction.user.id}> \n\n**Sent To:** {user_msg} <@{user_msg.id}>" , color=discord.Colour(0x2f3136),)
+                    embed_log = discord.Embed(title=f"anonymous message", description=f"{self.children[1].value} \n\n**Sent By:** {interaction.user} <@{interaction.user.id}> **Sent To:** {user_msg} <@{user_msg.id}>" , color=discord.Colour(0x2f3136),)
                     embed_log.set_footer(text="Powered by Incognito")
                     await log_chn.send(embed=embed_log)
 
