@@ -20,4 +20,4 @@ async def run():
     await load()
 
 asyncio.run(run())
-bot.run(token)
+bot.run(token) 
