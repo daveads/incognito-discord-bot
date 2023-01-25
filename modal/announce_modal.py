@@ -1,3 +1,4 @@
+from turtle import title
 import discord
 
 from core.config_parser import BotConfigs
@@ -6,8 +7,7 @@ botconfig = BotConfigs()
 class announce(discord.ui.Modal):
      def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
-        print(args)
-        print(kwargs)
+
 
         self.add_item(discord.ui.InputText(label="Title", style=discord.InputTextStyle.short))
         self.add_item(discord.ui.InputText(label="announcement", style=discord.InputTextStyle.long))
